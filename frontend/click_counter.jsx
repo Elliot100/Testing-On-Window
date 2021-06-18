@@ -11,11 +11,18 @@ class ClickCounter extends React.Component {
     this.setState({ count: this.state.count + 1});
   }
 
+  reset(event) {
+    event.preventDefault();
+    this.setState({ count: 0 });
+  }
+
   render() {
     return (
       <div>
         <button onClick={this.click.bind(this)}>CLICK ME!!!</button>
         <span>{this.state.count}</span>
+        <br/>
+        <button onClick={this.reset.bind(this)}>reset!</button>
       </div>
     );
   }
