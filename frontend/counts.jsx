@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Counts = (props) => (
+const Counts = ({previousCounts}) => (
   <ul>
   {
-    props.previousCounts.map(count => <li>{count}</li>)
+    previousCounts.map(count => <li>{count}</li>)
   }
   </ul>
 );
