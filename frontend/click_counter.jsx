@@ -5,6 +5,9 @@ class ClickCounter extends React.Component {
   constructor(props) {
     super(props);
     this.state = { count: 0 , previousCounts: [] };
+
+    this.click = this.click.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   click(event) {
@@ -22,10 +25,10 @@ class ClickCounter extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.click.bind(this)}>CLICK ME!!!</button>
+        <button onClick={this.click}>CLICK ME!!!</button>
         <span>{this.state.count}</span>
         <br/>
-        <button onClick={this.reset.bind(this)}>reset!</button>
+        <button onClick={this.reset}>reset!</button>
         <Counts previousCounts = {this.state.previousCounts}/>
       </div>
     );
