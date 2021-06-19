@@ -3,7 +3,7 @@ import React from 'react';
 class ClickCounter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.state = { count: 0 , previousCounts: [] };
   }
 
   click(event) {
@@ -13,7 +13,9 @@ class ClickCounter extends React.Component {
 
   reset(event) {
     event.preventDefault();
-    this.setState({ count: 0 });
+    const previousCounts = this.state.previousCounts;
+    previousCounts.push(this.state.count);
+    this.setState({ count: 0, previousCounts });
   }
 
   render() {
@@ -23,6 +25,11 @@ class ClickCounter extends React.Component {
         <span>{this.state.count}</span>
         <br/>
         <button onClick={this.reset.bind(this)}>reset!</button>
+        <ul>
+        {
+          this.state.previousCounts.map(count => <li>{count}</li>)
+        }
+        </ul>
       </div>
     );
   }
