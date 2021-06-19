@@ -1,4 +1,5 @@
 import React from 'react';
+import Counts from './counts';
 
 class ClickCounter extends React.Component {
   constructor(props) {
@@ -25,11 +26,7 @@ class ClickCounter extends React.Component {
         <span>{this.state.count}</span>
         <br/>
         <button onClick={this.reset.bind(this)}>reset!</button>
-        <ul>
-        {
-          this.state.previousCounts.map(count => <li>{count}</li>)
-        }
-        </ul>
+        <Counts previousCounts = {this.state.previousCounts}/>
       </div>
     );
   }
